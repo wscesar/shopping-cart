@@ -1,0 +1,51 @@
+.products {
+  display: flex;
+  flex: 3 60rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.products li {
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 500;
+  flex-direction: column;
+  height: 47rem;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.products li:hover .title {
+  color: var(--yellow);
+}
+
+.products li img {
+  max-width: 37rem;
+  max-height: 37rem;
+}
+
+.products li .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products li .price span,
+.products li .price button {
+  flex: 1;
+}
+
+.products li button {
+  border: none;
+  background-color: var(--yellow);
+  cursor: pointer;
+  font-size: inherit;
+  padding: 1rem;
+}

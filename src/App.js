@@ -7,13 +7,14 @@ function App() {
   const [products, setProducts] = useState(data.products)
 
   return (
-    <div className="grid-container">
+    <div className='grid-container'>
       <header>
-        <a href="/">React Shopping Cart</a>
+        <a href='/'>React Shopping Cart</a>
       </header>
 
       <main>
         <Products products={products} />
+        <aside></aside>
       </main>
 
       <footer>

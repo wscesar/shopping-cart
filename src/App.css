@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 :root {
   --black: #212121;
   --white: #f0f0f0;
-  --orange: #ff8000;
+  --yellow: #f0c040;
 }
 
 html {
@@ -15,7 +17,7 @@ body,
   margin: 0;
 }
 
-body, input, select, textarea {
+body, input, select, button textarea {
   font-size: 1.6rem;
   font-family: 'Roboto', sans-serif;
 }
@@ -26,7 +28,7 @@ a {
 }
 
 a:hover {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 .grid-container {
@@ -54,9 +56,14 @@ header {
 
 main {
   grid-area: main;
+  display: flex;
 }
 
 footer {
   grid-area: footer;
   justify-content: center;
+}
+
+aside {
+  flex: 1 20rem;
 }

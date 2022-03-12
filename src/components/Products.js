@@ -4,15 +4,17 @@ import './Products.css'
 const Products = props => {
   const { products } = props
   return (
-    <ul className="products">
+    <ul className='products'>
       {
         products.map(product => {
           return (
             <li key={product.id}>
               <img src={product.image} alt={product.title}/>
-              <span className="product-name">{product.title}</span>
-              <span className="product-price">{product.price}</span>
-              <button className="add-to-cart">Add to cart</button>
+              <span className='title'>{product.title}</span>
+              <span className='price'>
+                <span>{product.price}</span>
+                <button>Add to cart</button>
+              </span>
             </li>
           )
         })
