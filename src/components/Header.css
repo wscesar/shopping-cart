@@ -1,0 +1,7 @@
+header {
+  color: var(--yellow);
+  grid-area: header;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 0 2rem;
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Products from './components/Products';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import data from './data.json'
 import './App.css';
 
@@ -8,18 +10,12 @@ function App() {
 
   return (
     <div className='grid-container'>
-      <header>
-        <a href='/'>React Shopping Cart</a>
-      </header>
-
+      <Header />
       <main>
         <Products products={products} />
         <aside></aside>
       </main>
-
-      <footer>
-        All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }

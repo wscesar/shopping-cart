@@ -50,18 +50,9 @@ header, footer {
   padding: .5rem;
 }
 
-header {
-  grid-area: header;
-}
-
 main {
   grid-area: main;
   display: flex;
-}
-
-footer {
-  grid-area: footer;
-  justify-content: center;
 }
 
 aside {
