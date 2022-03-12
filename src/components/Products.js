@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Products.css'
+import formatCurrency from '../utils/formatCurrency'
 
 const Products = props => {
   const { products } = props
@@ -12,7 +13,7 @@ const Products = props => {
               <img src={product.image} alt={product.title}/>
               <span className='title'>{product.title}</span>
               <span className='price'>
-                <span>{product.price}</span>
+                <span>{formatCurrency(product.price)}</span>
                 <button>Add to cart</button>
               </span>
             </li>
