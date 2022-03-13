@@ -14,8 +14,9 @@ const Header = props => {
         <span className='results'>{count} Products</span>
 
         <label>
-          <span>Order by </span>
+          <span>Order by</span>
           <select value={order} onChange={orderProducts}>
+            <option disabled={order}>Select</option>
             {
               orderList.map(
                 value => <option key={value} value={value}>{value} price</option>
@@ -25,7 +26,7 @@ const Header = props => {
         </label>
 
         <label>
-          <span>Size </span>
+          <span>Size</span>
           <select value={size} onChange={filterProducts}>
             {
               sizeList.map(

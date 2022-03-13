@@ -8,6 +8,7 @@
 
 * {
   box-sizing: border-box;
+  line-height: 1;
   margin: 0;
   padding: 0;
 }
@@ -32,8 +33,14 @@ a:hover {
 
 main {
   display: flex;
+  min-height: calc(100vh - 210px);
 }
 
 aside {
   flex: 1 20rem;
+}
+
+.not-found {
+  width: 100%;
+  text-align: center;
 }

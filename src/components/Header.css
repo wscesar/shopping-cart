@@ -25,3 +25,9 @@ header h1 {
   width: 100%;
   padding: 1rem 2rem;
 }
+
+.filters select{
+  margin-left: .5rem;
+  padding: .5rem ;
+  text-transform: capitalize;
+}
