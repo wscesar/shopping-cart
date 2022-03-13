@@ -37,7 +37,8 @@ main {
 }
 
 aside {
-  flex: 1 20rem;
+  flex: 1;
+  padding: 0 2rem;
 }
 
 .not-found {
