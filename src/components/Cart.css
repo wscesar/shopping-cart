@@ -1,0 +1,31 @@
+.cart-items li {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.cart-items img {
+  max-height: 150px;
+}
+
+.cart-items .title {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cart-items .text {
+  font-size: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+
+.cart-items button {
+  cursor: pointer;
+  padding: 1rem;
+}

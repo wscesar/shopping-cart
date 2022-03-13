@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import Products from './components/Products';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Cart from './components/Cart';
 import data from './data.json'
 import './App.css';
 
 function App() {
   const [size, setSize] = useState('')
   const [order, setOrder] = useState('')
+  const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState(data.products)
 
   const orderProducts = event => {
@@ -34,6 +36,30 @@ function App() {
     }
   }
 
+  const addToCart = product => {
+    let alreadInCart = false
+    const newCartItems = [...cartItems]
+
+    newCartItems.forEach(item => {
+      if (item.id === product.id) {
+        alreadInCart = true
+        item.amount++
+      }
+    })
+
+    if (!alreadInCart) {
+      newCartItems.push({ ...product, amount: 1 })
+    }
+
+    setCartItems(newCartItems)
+  }
+
+  const removeFromCart = product => {
+    setCartItems(
+      cartItems.filter(item => item.id !== product.id)
+    )
+  };
+
   return (
     <>
       <Header
@@ -45,11 +71,16 @@ function App() {
       />
       <main>
         {
-          products.length
-            ? <><Products products={products} /> <aside></aside></>
-            : <div className='not-found'>No items found!</div>
+          products.length === 0 &&
+          <div className='not-found'>No items found!</div>
         }
-        
+        {
+          products.length > 0 &&
+          <>
+            <Products products={products} addToCart={addToCart} />
+            <Cart cartItems={cartItems} removeFromCart={removeFromCart}></Cart>
+          </>
+        }
       </main>
       <Footer />
     </>
