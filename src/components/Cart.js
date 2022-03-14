@@ -2,31 +2,53 @@ import formatCurrency from '../utils/formatCurrency'
 import './Cart.css'
 
 const Cart = props => {
-  const { cartItems, removeFromCart } = props
+  const { cartProducts, removeFromCart, checkout } = props
+  let headerDescription = ' empty'
+
+  if (cartProducts.length === 1) {
+    headerDescription = ` ${cartProducts.length} item`
+  }
+  else if (cartProducts.length > 1) {
+    headerDescription = ` ${cartProducts.length} items`;
+  }
+
+
   return (
     <aside>
-      {cartItems.length <= 0 && <div>Cart is empty</div>}
-      {cartItems.length > 0 && <div>{cartItems.length} items in the cart</div>}
-      <hr></hr>
+      <p className="cart-header">Shopping Cart: {headerDescription}</p>
+
       <ul className='cart-items'>
         {
-          cartItems.map(item => {
+          cartProducts.map(product => {
             return (
-              <li key={item.id}>
-
-                <img src={item.image} alt={item.title} />
+              <li key={product.id}>
+                <img src={product.image} alt={product.title} />
                 <span className="text">
-                  <span className='title'>{item.title}</span>
-                  <span> Amount: {item.amount}</span>
-                  <span>Price: {formatCurrency(item.price)}</span>
-                  <span>Subtotal: {formatCurrency(item.price * item.amount)}</span>
-                  <button onClick={() => { removeFromCart(item) }}>Remove</button>
+                  <span className='title'>{product.title}</span>
+                  <span>Amount: {product.amount}</span>
+                  <span>Price: {formatCurrency(product.price)}</span>
+                  <span>Subtotal: {formatCurrency(product.price * product.amount)}</span>
+                  <button onClick={() => removeFromCart(product)}>Remove</button>
                 </span>
               </li>
             )
           })
         }
       </ul>
+
+      {
+        cartProducts.length > 0 &&
+        <div className='cart-total'>
+          Total: {
+            formatCurrency(
+              cartProducts.reduce(
+                (total, product) => total + product.price * product.amount, 0
+              )
+            )
+          }
+          <button onClick={checkout}>Checkout</button>
+        </div>
+      }
     </aside>
   )
 }

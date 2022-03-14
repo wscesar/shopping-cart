@@ -19,7 +19,6 @@
 }
 
 .products li {
-  cursor: pointer;
   display: flex;
   font-size: 2rem;
   font-weight: 500;
@@ -42,6 +41,7 @@
 
 .products .price {
   display: flex;
+  font-weight: 700;
   justify-content: space-between;
   align-items: center;
 }
@@ -49,12 +49,4 @@
 .products .price span,
 .products .price button {
   flex: 1;
-}
-
-.products button {
-  border: none;
-  background-color: var(--yellow);
-  cursor: pointer;
-  font-size: inherit;
-  padding: 1rem;
 }

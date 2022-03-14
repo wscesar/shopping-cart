@@ -9,8 +9,8 @@ import './App.css';
 function App() {
   const [size, setSize] = useState('')
   const [order, setOrder] = useState('')
-  const [cartItems, setCartItems] = useState([])
   const [products, setProducts] = useState(data.products)
+  const [cartProducts, setCartProducts] = useState([])
 
   const orderProducts = event => {
     setOrder(event.target.value)
@@ -38,9 +38,9 @@ function App() {
 
   const addToCart = product => {
     let alreadInCart = false
-    const newCartItems = [...cartItems]
+    const newCartProducts = [...cartProducts]
 
-    newCartItems.forEach(item => {
+    newCartProducts.forEach(item => {
       if (item.id === product.id) {
         alreadInCart = true
         item.amount++
@@ -48,17 +48,21 @@ function App() {
     })
 
     if (!alreadInCart) {
-      newCartItems.push({ ...product, amount: 1 })
+      newCartProducts.push({ ...product, amount: 1 })
     }
 
-    setCartItems(newCartItems)
+    setCartProducts(newCartProducts)
   }
 
   const removeFromCart = product => {
-    setCartItems(
-      cartItems.filter(item => item.id !== product.id)
+    setCartProducts(
+      cartProducts.filter(item => item.id !== product.id)
     )
-  };
+  }
+
+  const checkout = () => {
+    console.log('checkout') 
+  }
 
   return (
     <>
@@ -77,8 +81,15 @@ function App() {
         {
           products.length > 0 &&
           <>
-            <Products products={products} addToCart={addToCart} />
-            <Cart cartItems={cartItems} removeFromCart={removeFromCart}></Cart>
+            <Products
+              products={products}
+              addToCart={addToCart}
+            />
+            <Cart
+              checkout={checkout}
+              cartProducts={cartProducts}
+              removeFromCart={removeFromCart}
+            />
           </>
         }
       </main>

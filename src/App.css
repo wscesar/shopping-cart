@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
+  --red: #d0312d;
   --black: #212121;
   --white: #f0f0f0;
   --yellow: #f0c040;
@@ -31,6 +32,14 @@ a:hover {
   color: var(--yellow);
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--yellow);
+  font-weight: 700;
+  padding: 1rem;
+}
+
 main {
   display: flex;
   min-height: calc(100vh - 210px);
@@ -39,6 +48,7 @@ main {
 aside {
   flex: 1;
   padding: 0 2rem;
+  min-width: 430px;
 }
 
 .not-found {
