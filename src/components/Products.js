@@ -39,7 +39,7 @@ const Products = () => {
         {
           products.map(product => {
             return (
-              <li key={product.id}>
+              <li key={product._id}>
                 <img src={product.image} alt={product.title} />
                 <span className='title'>{product.title}</span>
                 <span className='price'>

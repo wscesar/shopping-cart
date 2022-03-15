@@ -36,7 +36,7 @@ const Cart = () => {
         {
           cartProducts.map(product => {
             return (
-              <li key={product.id}>
+              <li key={product._id}>
                 <img src={product.image} alt={product.title} />
                 <span className="text">
                   <span className='title'>{product.title}</span>
